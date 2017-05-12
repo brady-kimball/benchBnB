@@ -34,11 +34,11 @@ class SessionForm extends React.Component {
     if(this.props.formType === 'signup/') {
       otherPath = '/login/';
       linkTitle = 'Log In';
-      header = "Sign Up";
+      header = "sign up";
     } else {
       linkTitle = 'Sign Up';
       otherPath = '/signup/';
-      header = "Log In";
+      header = "log in";
     }
 
     let errors = this.props.errors;
@@ -53,8 +53,8 @@ class SessionForm extends React.Component {
     }
     return (
       <section>
-        <header>{header}</header>
-        <Link to={otherPath}>{linkTitle}</Link>
+        <header>Please {header} or <Link to={otherPath}>{linkTitle}</Link></header>
+
         <ul>{errors}</ul>
         <form onSubmit={this.handleSubmit.bind(this)}>
           <input  type="text"
