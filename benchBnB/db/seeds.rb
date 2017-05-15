@@ -11,13 +11,16 @@ Bench.destroy_all
 
 b1 = Bench.create(description: "Lafayette Park Bench",
                   lat: 37.7915357,
-                  lng: -122.4307172
+                  lng: -122.4307172,
+                  seating: 3
                  )
 b2 = Bench.create(description: "Alta Plaza Bench",
                   lat: 37.7907092,
-                  lng: -122.440314
+                  lng: -122.440314,
+                  seating: 2
                  )
 b3 = Bench.create(description: "Nice bench",
                   lat: 37.8008612,
-                  lng: -122.411985
+                  lng: -122.411985,
+                  seating: 5
                  )

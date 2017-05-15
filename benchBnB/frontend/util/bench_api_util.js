@@ -6,3 +6,12 @@ export const fetchBenches = (filters) => {
     error: (err) => console.log(err)
   });
 };
+
+
+export const createBench = (bench) => {
+  return $.ajax({
+    url: "/api/benches/",
+    method: "POST",
+    data: bench
+  });
+};
