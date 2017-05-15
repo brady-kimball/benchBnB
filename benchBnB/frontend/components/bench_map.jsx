@@ -15,6 +15,21 @@ class BenchMap extends React.Component {
     this.MarkerManager = new MarkerManager(this.map);
 
     this.MarkerManager.updateMarkers(this.props.benches);
+
+    google.maps.event.addListener(this.map, 'idle', () => {
+      let bounds = this.map.getBounds();
+      let boundObj = {
+        northEast: {
+          lat: bounds.getNorthEast().lat(),
+          lng: bounds.getNorthEast().lng()
+        },
+        southWest: {
+          lat: bounds.getSouthWest().lat(),
+          lng: bounds.getSouthWest().lng()
+        }
+      };
+      this.props.updateBoundsThunk(boundObj);
+    });
   }
 
   componentDidUpdate() {
