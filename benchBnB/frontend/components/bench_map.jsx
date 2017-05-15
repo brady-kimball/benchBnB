@@ -29,7 +29,7 @@ class BenchMap extends React.Component {
           lng: bounds.getSouthWest().lng()
         }
       };
-      this.props.updateBoundsThunk(boundObj);
+      this.props.updateFilterThunk("bounds", boundObj);
     });
 
     google.maps.event.addListener(this.map, 'click', (e) => {

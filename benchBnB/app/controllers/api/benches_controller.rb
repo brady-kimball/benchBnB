@@ -6,6 +6,8 @@ class Api::BenchesController < ApplicationController
     else
       @benches = Bench.all
     end
+    @benches = @benches.where("seating >= ?", params[:minSeating])
+      .where("seating <= ?", params[:maxSeating])
     render :index
   end
 
@@ -26,6 +28,8 @@ class Api::BenchesController < ApplicationController
   private
 
   def bench_params
-    params.require(:bench).permit(:description, :lat, :lng, :seating)
+    params
+      .require(:bench)
+      .permit(:description, :lat, :lng, :seating, :max_seating, :min_seating)
   end
 end

@@ -1,14 +1,17 @@
-export const UPDATE_BOUNDS = "UPDATE_BOUNDS";
 import { fetchBenches } from './bench_actions';
 
-export const updateBounds = (bounds) => ({
-  type: UPDATE_BOUNDS,
-  bounds
+export const UPDATE_BOUNDS = "UPDATE_BOUNDS";
+export const UPDATE_FILTER = "UPDATE_FILTER";
+
+export const updateFilter = (filter, value) => ({
+  type: UPDATE_FILTER,
+  filter,
+  value
 });
 
-export function updateBoundsThunk(bounds) {
+export function updateFilterThunk(filter, value) {
   return (dispatch, getState) => {
-    dispatch(updateBounds(bounds));
+    dispatch(updateFilter(filter, value));
     return fetchBenches(getState().filters)(dispatch);
     // delicious curry!
   };
