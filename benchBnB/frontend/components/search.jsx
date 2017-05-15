@@ -4,7 +4,7 @@ import BenchIndex from './bench_index';
 
 export default ({ benches, fetchBenches }) => (
   <div>
-    <BenchMap />
+    <BenchMap benches={benches}/>
     <BenchIndex benches={benches}
                 fetchBenches={fetchBenches}/>
   </div>
