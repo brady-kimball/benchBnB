@@ -6,7 +6,9 @@ import { allBenches } from '../reducers/selectors.js';
 import { updateFilterThunk } from '../actions/filter_actions';
 
 const mapStatetoProps = state => ({
-  benches: allBenches(state.benches)
+  benches: allBenches(state.benches),
+  minSeating: state.filters.minSeating,
+  maxSeating: state.filters.maxSeating
 });
 
 const mapDispatchToProps = dispatch => ({
